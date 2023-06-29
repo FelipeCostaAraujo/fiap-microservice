@@ -2,15 +2,15 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/settings");
 
 function verificartoken(req, res, next) {
-    const token_enviado = req.body.token || req.query.token || req.headers['authorization'];
+    let token_enviado = req.body.token || req.query.token || req.headers['authorization'];
 
     if (!token_enviado) {
         return res.status(401).send({
             output: `Não existe token. Realize o processo de login`
         });
     }
-    if (token.startsWith('Bearer ')) {
-        token = token.slice(7, token.length);
+    if (token_enviado.startsWith('Bearer ')) {
+        token_enviado = token_enviado.slice(7, token_enviado.length);
     }
     jwt.verify(token_enviado, config.jwt_secret, (err, result) => {
         if (err) {
