@@ -1,9 +1,9 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const gerarToken = require("../utils/gerartoken")
-const verificarToken = require("../../../../middlewares/verificartoken");
+const verificarToken = require("../middlewares/verificartoken");
 const Cliente = require("../models/cliente");
-const config = require("../../../../config/settings");
+const config = require("../config/settings");
 
 const router = express.Router();
 
@@ -73,7 +73,7 @@ router.post("/login", (req, res) => {
             if (!rs) {
                 return res.status(400).send({ output: `Senha incorreta` });
             }
-            const token = gerarToken(result._id, result.usuario, result.email);
+            const token = gerarToken(result._id, result.nomeusuario, result.email);
             res.status(200).send({ output: `Autenticado`, token: token });
         }).catch((err) => res.status(500).send({ output: `Erro ao processar dados ${err}` }));
     }).catch((error) => res.status(500).send({ output: `Erro ao tentar efetuar o login ${error}` }));

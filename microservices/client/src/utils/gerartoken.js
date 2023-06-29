@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("../../../../config/settings");
+const config = require("../config/settings");
 
 function gerarToken(id, usuario, email) {
   return jwt.sign(

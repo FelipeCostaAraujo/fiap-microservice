@@ -12,6 +12,6 @@ app.use(morgan("combined"));
 app.use(cors());
 app.use("/api", router);
 
-app.listen(3000, () => {
-  console.log(`Servidor online em http://127.0.0.1:3000`);
+app.listen(4000, () => {
+  console.log(`Servidor online em http://127.0.0.1:4000`);
 });
