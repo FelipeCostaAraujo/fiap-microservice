@@ -1,4 +1,4 @@
-const mongoose = require("../database/conexao");
+const mongoose = require("../../../../database/conexao");
 
 const schema = new mongoose.Schema({
     nomeusuario: String,
