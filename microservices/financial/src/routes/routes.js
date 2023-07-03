@@ -16,7 +16,7 @@ router.post('/financial', verificarToken, async (req, res) => {
         const cliente = await Cliente.findById(tokenDecoded.idusuario);
 
         if (!cliente) {
-            return res.status(401).json({ error: 'Cliente não encontrado' });
+            return res.status(404).json({ error: 'Cliente não encontrado' });
         }
 
         console.log(cliente);
