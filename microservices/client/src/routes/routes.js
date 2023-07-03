@@ -75,7 +75,7 @@ router.post("/login", (req, res) => {
             res.status(200).send({ output: `Autenticado`, token: token, user: result });
         }).catch((err) => res.status(500).send({ output: `Erro ao processar dados ${err}` }));
     }).catch((error) => res.status(500).send({ output: `Erro ao tentar efetuar o login ${error}` }));
-})
+});
 
 
 router.use((req, res) => {

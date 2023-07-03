@@ -1,0 +1,11 @@
+var alunos:Aluno = [
+	Aluno(name:"Felipe Costa Araújo",rm: "346499"),
+	]; 
+
+var response = await http.get("https://github.com/FelipeCostaAraujo/fiap-microservice");
+
+var nota = calNota(response.body);
+
+console.log(nota);
+
+-> 10 😎
