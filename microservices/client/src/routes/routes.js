@@ -1,9 +1,9 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const gerarToken = require("../utils/gerartoken")
-const verificarToken = require("../middlewares/verificartoken");
-const Cliente = require("../models/cliente");
-const config = require("../config/settings");
+const gerarToken = require("middlewares/auth/gerartoken")
+const verificarToken = require("middlewares/auth/verificartoken");
+const Cliente = require("middlewares/models/cliente");
+const config = require("middlewares/config/settings");
 
 const router = express.Router();
 

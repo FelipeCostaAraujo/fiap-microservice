@@ -1,8 +1,8 @@
 const express = require("express");
-const verificarToken = require("../middlewares/verificartoken");
-const FinancialInfo = require("../models/financial");
-const decodeToken = require("../utils/decode-token");
-const Cliente = require("../models/cliente");
+const verificarToken = require("middlewares/auth/verificartoken");
+const FinancialInfo = require("middlewares/models/financial");
+const decodeToken = require("middlewares/auth/decode-token");
+const Cliente = require("middlewares/models/cliente");
 
 const router = express.Router();
 
@@ -62,6 +62,7 @@ router.get('/financial', verificarToken, async (req, res) => {
 
         const tokenDecoded = decodeToken(token);
 
+        console.log(tokenDecoded);
         const cliente = await Cliente.findById(tokenDecoded.idusuario);
 
         if (!cliente) {
@@ -72,7 +73,7 @@ router.get('/financial', verificarToken, async (req, res) => {
 
         res.status(201).json({ message: 'Informações financeiras cadastradas', payload: existingInfo });
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao cadastrar/atualizar informações financeiras' });
+        res.status(500).json({ error: 'Erro inesperado' });
     }
 });
 
