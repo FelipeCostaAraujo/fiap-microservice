@@ -20,9 +20,6 @@ router.post('/financial', verificarToken, verificarAPIKey, async (req, res) => {
             return res.status(404).json({ error: 'Cliente não encontrado' });
         }
 
-        console.log(cliente);
-        console.log(cliente._id);
-
         const existingInfo = await FinancialInfo.findOne({ userId: cliente._id });
 
         if (existingInfo) {
@@ -61,7 +58,6 @@ router.get('/financial', verificarToken, verificarAPIKey, async (req, res) => {
 
         const tokenDecoded = decodeToken(token);
 
-        console.log(tokenDecoded);
         const cliente = await Cliente.findById(tokenDecoded.idusuario);
 
         if (!cliente) {
