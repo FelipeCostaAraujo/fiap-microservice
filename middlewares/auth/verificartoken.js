@@ -14,7 +14,7 @@ function verificartoken(req, res, next) {
     }
     jwt.verify(token_enviado, config.jwt_secret, (err, result) => {
         if (err) {
-            return res.status(500).send({ output: `Erro interno->${err}` })
+            return res.status(401).json({ error: 'Acesso não autorizado.' });
         };
         req.content = {
             id: result._id,

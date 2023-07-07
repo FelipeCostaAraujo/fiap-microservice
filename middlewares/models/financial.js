@@ -5,7 +5,6 @@ const schema = new mongoose.Schema({
     tipo_conta: String,
     nome_titular: String,
     limite_cartao: Number,
-    apikey: String,
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Cliente',

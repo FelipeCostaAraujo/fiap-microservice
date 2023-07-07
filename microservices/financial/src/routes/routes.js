@@ -2,14 +2,15 @@ const express = require("express");
 const verificarToken = require("middlewares/auth/verificartoken");
 const FinancialInfo = require("middlewares/models/financial");
 const decodeToken = require("middlewares/auth/decode-token");
+const verificarAPIKey = require("middlewares/auth/verificar-apikey");
 const Cliente = require("middlewares/models/cliente");
 
 const router = express.Router();
 
-router.post('/financial', verificarToken, async (req, res) => {
+router.post('/financial', verificarToken, verificarAPIKey, async (req, res) => {
     try {
         const token = req.body.token || req.query.token || req.headers['authorization'];
-        const { nome_banco, tipo_conta, nome_titular, limite_cartao, apikey } = req.body;
+        const { nome_banco, tipo_conta, nome_titular, limite_cartao } = req.body;
 
         const tokenDecoded = decodeToken(token);
 
@@ -29,7 +30,6 @@ router.post('/financial', verificarToken, async (req, res) => {
             existingInfo.tipo_conta = tipo_conta;
             existingInfo.nome_titular = nome_titular;
             existingInfo.limite_cartao = limite_cartao;
-            existingInfo.apikey = apikey;
 
             await existingInfo.save();
             cliente.financial = existingInfo;
@@ -43,7 +43,6 @@ router.post('/financial', verificarToken, async (req, res) => {
                 tipo_conta,
                 nome_titular,
                 limite_cartao,
-                apikey,
                 userId: cliente._id,
             });
 
@@ -56,7 +55,7 @@ router.post('/financial', verificarToken, async (req, res) => {
     }
 });
 
-router.get('/financial', verificarToken, async (req, res) => {
+router.get('/financial', verificarToken, verificarAPIKey, async (req, res) => {
     try {
         const token = req.body.token || req.query.token || req.headers['authorization'];
 
