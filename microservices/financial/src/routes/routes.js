@@ -20,6 +20,10 @@ router.post('/financial', verificarToken, verificarAPIKey, async (req, res) => {
             return res.status(404).json({ error: 'Cliente não encontrado' });
         }
 
+        if (nome_banco, tipo_conta, nome_titular, limite_cartao === undefined) {
+            return res.status(400).json({ error: 'Dados inválidos' });
+        }
+
         const existingInfo = await FinancialInfo.findOne({ userId: cliente._id });
 
         if (existingInfo) {

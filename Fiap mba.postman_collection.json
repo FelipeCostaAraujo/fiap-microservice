@@ -7,6 +7,38 @@
 	},
 	"item": [
 		{
+			"name": "update client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nomeusuario\": \"araujo\",\n  \"email\": \"felipe@felipe.com\",\n  \"senha\": \"123456\",\n  \"nomecompleto\": \"Felipe Costa Araujo\",\n  \"telefone\": \"011000000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/insert",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "insert",
 			"request": {
 				"method": "POST",

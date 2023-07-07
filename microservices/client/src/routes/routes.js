@@ -26,6 +26,11 @@ router.get("/:id", verificarAPIKey, (req, res) => {
 });
 
 router.post("/insert", async (req, res) => {
+    const { email, nomeusuario, senha, nomecompleto, telefone } = req.body;
+
+    if(email, nomeusuario, senha, nomecompleto, telefone === undefined) {  
+        return res.status(400).send({ output: `Dados inválidos` });
+     }
 
     const client = await Cliente.findOne({ email: req.body.email });
 
@@ -50,11 +55,12 @@ router.post("/insert", async (req, res) => {
 });
 
 router.put("/update/:id", verificarToken, verificarAPIKey, (req, res) => {
-    Cliente.findByIdAndUpdate(req.params.id, req.body, { new: true }).then((result) => {
+    const data = { email, nomeusuario, nomecompleto, telefone } = req.body;
+    Cliente.findByIdAndUpdate(req.params.id, data,{ new: true }).then((result) => {
         if (!result) {
             return res.status(400).send({ output: `Não foi possível atualizar` });
         }
-        res.status(202).send({ output: `Atualizado`, payload: result });
+        res.status(202).send({ output: `Atualizado`, payload: data });
     }).catch((erro) => {
         res.status(500).send({ output: `Erro ao processar a solicitação -> ${erro}` });
     });
