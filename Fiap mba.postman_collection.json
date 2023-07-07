@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "079813fb-2c38-46df-83cb-1a709befca73",
+		"name": "Fiap mba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21112958"
+	},
+	"item": [
+		{
+			"name": "insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nomeusuario\": \"araujo\",\n  \"email\": \"felipe@felipe.com\",\n  \"senha\": \"123456\",\n  \"nomecompleto\": \"Felipe Costa Araujo\",\n  \"telefone\": \"011000000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/insert",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": \"araujo\",\n    \"senha\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "troca de senha",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"felipe@felipe.com\",\n    \"senhaAntiga\": \"123456\",\n    \"senhaNova\" : \"1234\",\n    \"api-key\": \"$2b$10$G4KtVPqODm4ILIiv.PyB4O\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/recovery",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recovery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "financial",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOiI2NDlkMTkwMjg1NWIwZDk2ODAxY2Q3MjkiLCJub21ldXN1YXJpbyI6ImFyYXVqbyIsImVtYWlsIjoiZmVsaXBlQGZlbGlwZS5jb20iLCJhdXRlbnRpY2FkbyI6dHJ1ZSwiaWF0IjoxNjg4NjY3MzUzLCJleHAiOjE2ODkwOTkzNTN9.QAtXNCF2tcb5x4dyHIGo1q644tBzRtn8mrcEpLy7Xfg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome_banco\":\"itau\", \n    \"tipo_conta\":\"corrente\",\n     \"nome_titular\":\"Felipe Araujo\",\n      \"limite_cartao\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/financial",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"financial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca de dadados financeiros",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
