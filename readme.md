@@ -35,12 +35,12 @@ Caso seja necessário debugar a API, execute o somente o banco de dados via dock
 
 ## Variaveis para o .env
  - Cada servico necessita de um arquivo .env com as seguintes variaveis:
-DB_HOST
-DB_NAME
-DB_USER
-DB_PASS
-HOST
-KEY_JWT
-NODE_ENV
-API_KEY
+- DB_HOST
+- DB_NAME
+- DB_USER
+- DB_PASS
+- HOST
+- KEY_JWT
+- NODE_ENV
+- API_KEY
 

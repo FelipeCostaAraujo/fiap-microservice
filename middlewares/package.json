@@ -1,13 +1,13 @@
 {
   "name": "middlewares",
   "version": "1.0.0",
-  "description": "module to connect to mongodb",
+  "author": "Felipe C. Araujo",
+  "description": "pacote para gerenciar os middlewares da aplicação",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Felipe C. Araujo",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
